@@ -5,12 +5,12 @@ The goal of this project is to replace the physical drive of my NTSC FZ-1 with a
 In the `PCB` directory, the `SATA23DO_final.zip` gerbers for the PCB can be found and ordered from a fabricator such as PCBWay or JLCPCB.
 
 For the BOM:
-- 1x RP2040 module: RP2040-Plus from WaveShare: https://www.waveshare.com/wiki/RP2040-Plus
-- 6x bi-directional level shifter modules: https://fr.aliexpress.com/item/32890488553.html
+- 1x RP2040 module: RP2040-Plus from WaveShare (***4GB***): https://www.waveshare.com/wiki/RP2040-Plus or https://www.amazon.com/dp/B09KZFJTV9?th=1
+- 6x bi-directional level shifter modules: https://fr.aliexpress.com/item/32890488553.html or https://www.amazon.com/dp/B0DRGBRPN3
 - 1x Octal bus tranceiver 74HC245N in DIP format
-- 1x 2x6 connector 1.25mm (to be populated on POWER_1)
-- 1x 2x15 connector 1.25mm (to be populated on CDROM)
-Connectors can be found on aliexpress (https://m.fr.aliexpress.com/item/1005002262284714.html)
+- 1x 2x6 connector 1.25mm (to be populated on POWER_1) (FPC FFC 1.25mm Pitch Flat Cable Connector Socket Double Row DIP Type 12 Pin - ***A-01, 12 Pin***) - This connector will require a "surgery", the pins have to be pulled out and reinserted in a different order to fit the holes.
+- 1x 2x15 connector 1.25mm (to be populated on CDROM) (FPC FFC 1.25mm Pitch Flat Cable Connector Socket Double Row DIP Type 30 Pin - ***A-01, 30 Pin***) - https://www.aliexpress.us/item/3256802075969962.html
+Connectors can be found on aliexpress (https://m.fr.aliexpress.com/item/1005002262284714.html or https://www.aliexpress.us/item/3256802075969962.html or https://www.amazon.com/1-25mm-Pitch-Connector-Socket-Double/dp/B0D9HM2WQG?th=1 )
 All other parts are not required to be populated. If you want to debug code, you can add a header on the UART port, and connect a UART to USB adapter (I am using minicom on Linux as a serial console to see the traces.)
 
 Regarding connectors, take care to order the right one depending your 3DO's cable.
@@ -32,7 +32,7 @@ cmake ../
 make -j8
 ```
 Per default, the setup is done for waveshare_rp2040_plus_4mb.
-For a 16mb, you need to edit the CMakeLists.txt file and change the PICO_BOARD to waveshare_rp2040_plus_16mb
+For a ***16mb***, you need to edit the CMakeLists.txt file and change the PICO_BOARD to waveshare_rp2040_plus_16mb
 
 Otherwise, cmake will raise errors that it cannot find the necessary include files.
 
